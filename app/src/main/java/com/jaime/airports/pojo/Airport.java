@@ -30,9 +30,23 @@ public class Airport implements Parcelable {
         id = in.readInt();
         code = in.readString();
         country = in.readString();
+        date = new Date(in.readLong());
         notes = in.readString();
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(code);
+        dest.writeString(country);
+        dest.writeLong(date.getTime());
+        dest.writeString(notes);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
     public static final Creator<Airport> CREATOR = new Creator<Airport>() {
         @Override
@@ -45,22 +59,6 @@ public class Airport implements Parcelable {
             return new Airport[size];
         }
     };
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
-        parcel.writeString(code);
-        parcel.writeString(country);
-        parcel.writeString(notes);
-    }
-
 
     public int getId() {
         return id;
