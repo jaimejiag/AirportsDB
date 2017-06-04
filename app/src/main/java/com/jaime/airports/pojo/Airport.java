@@ -26,6 +26,14 @@ public class Airport implements Parcelable {
     }
 
 
+    public Airport(String code, String country, Date date, String notes) {
+        this.code = code;
+        this.country = country;
+        this.date = date;
+        this.notes = notes;
+    }
+
+
     protected Airport(Parcel in) {
         id = in.readInt();
         code = in.readString();
@@ -33,6 +41,7 @@ public class Airport implements Parcelable {
         date = new Date(in.readLong());
         notes = in.readString();
     }
+
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -43,10 +52,12 @@ public class Airport implements Parcelable {
         dest.writeString(notes);
     }
 
+
     @Override
     public int describeContents() {
         return 0;
     }
+
 
     public static final Creator<Airport> CREATOR = new Creator<Airport>() {
         @Override
@@ -59,6 +70,7 @@ public class Airport implements Parcelable {
             return new Airport[size];
         }
     };
+
 
     public int getId() {
         return id;

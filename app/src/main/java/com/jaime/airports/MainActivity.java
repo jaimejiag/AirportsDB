@@ -4,15 +4,33 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.jaime.airports.fragments.AddAirportFragment;
 import com.jaime.airports.fragments.ListAirportFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ListAirportFragment.ListAirportListener,
+        AddAirportFragment.AddAirportListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        ListAirportFragment fragment = new ListAirportFragment();
+        transaction.replace(R.id.layout_main, fragment).commit();
+    }
+
+
+    @Override
+    public void onAddAirportListener() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        AddAirportFragment fragment = new AddAirportFragment();
+        transaction.replace(R.id.layout_main, fragment).commit();
+    }
+
+
+    @Override
+    public void onListAirportsListener() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         ListAirportFragment fragment = new ListAirportFragment();
         transaction.replace(R.id.layout_main, fragment).commit();

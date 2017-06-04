@@ -1,6 +1,7 @@
 package com.jaime.airports.fragments;
 
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,25 @@ public class ListAirportFragment extends Fragment implements ListAirportsPresent
     private ListView lvAirports;
     private ListAirportsPresenter mPresenter;
     private AirportsAdapter mAdapter;
+    private ListAirportListener mCallback;
+
+
+    public interface ListAirportListener {
+        void onAddAirportListener();
+    }
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mCallback = (ListAirportListener) activity;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
 
     @Override
@@ -51,17 +71,23 @@ public class ListAirportFragment extends Fragment implements ListAirportsPresent
         mPresenter.requestAllAirport();
     }
 
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-
         inflater.inflate(R.menu.menu_list, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.menu_item_add:
+                mCallback.onAddAirportListener();
+                break;
+        }
+
+        return true;
     }
 
 

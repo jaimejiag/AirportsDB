@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:baselineAligned="true"
+    android:orientation="vertical"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp">
+
+    <LinearLayout
+        android:id="@+id/layoutcode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtCode"
+            android:layout_width="0dip"
+            android:layout_height="30dip"
+            android:layout_weight="2"
+            android:gravity="left"
+            android:text="@string/txtCode"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/edtCode"
+            android:layout_width="72dip"
+            android:layout_height="40dip"
+            android:inputType="textCapCharacters"
+            android:maxLength="@string/sizeCode"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:layout_weight="0.86">
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
+    <!-- parte de cod_aero: insertar -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="horizontal"
+        android:id="@+id/layoutexamplecode">
+
+        <TextView
+            android:id="@+id/txtExampleCode"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="right"
+            android:text="@string/txtExampleCode"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="12sp"></TextView>
+    </LinearLayout>
+    <!-- parte de cod_aero: ejemplo y tamaño -->
+
+    <LinearLayout
+        android:id="@+id/layoutcity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtCity"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="91.13"
+            android:gravity="left"
+            android:text="@string/txtCity"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <!-- espacio -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/edtCity"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:inputType="textCapWords"
+            android:maxLength="@string/sizeCity"
+            android:scrollbars="vertical"
+            android:textStyle="bold"
+            android:typeface="serif" >
+        </EditText>
+    </LinearLayout>
+    <!-- parte de pais: insertar -->
+
+    <!-- parte de pais: ejemplo y tamaño -->
+
+    <LinearLayout
+        android:id="@+id/layoutdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtTitleDate"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:gravity="right|left"
+            android:text="@string/txtTitleDate"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp"></TextView>
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.29"
+            android:gravity="right"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFA500"
+            android:textStyle="italic" >
+        </TextView>
+
+        <Button
+            android:id="@+id/btnDate"
+            android:layout_width="wrap_content"
+            android:layout_height="35dip"
+            android:text="@string/btnDate"
+            android:textStyle="bold" >
+        </Button>
+    </LinearLayout>
+    <!-- parte de fecha: insertar, mostrar y boton -->
+
+    <LinearLayout
+        android:id="@+id/layoutexampledate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtExampleDate"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="right"
+            android:text="@string/txtExampleDate"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="12sp"></TextView>
+    </LinearLayout>
+    <!-- parte de fecha: ejemplo -->
+
+    <LinearLayout
+        android:id="@+id/layoutnotes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="horizontal" >
+    </LinearLayout>
+    <!-- espacio -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:text="@string/txtNotes"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp"></TextView>
+
+        <EditText
+            android:id="@+id/edtNotes"
+            android:layout_width="match_parent"
+            android:layout_height="80dip"
+            android:inputType="textMultiLine"
+            android:maxLength="@string/sizeNotes"
+            android:scrollHorizontally="false"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical" >
+        </EditText>
+    </LinearLayout>
+    <!-- parte de notas: insertar y tamaño -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dip"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:baselineAligned="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/btnAdd"
+            android:textStyle="bold"
+            android:typeface="monospace" >
+        </Button>
+    </LinearLayout>
+    <!-- parte boton -->
+
+</LinearLayout>

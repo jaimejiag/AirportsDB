@@ -22,7 +22,7 @@ public class DatabaseContract {
                 "%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "%s TEXT UNIQUE NOT NULL, " +
                 "%s TEXT NOT NULL, " +
-                "%s DATE NOT NULL, " +
+                "%s TEXT NOT NULL, " +
                 "%s TEXT NOT NULL)",
                 TABLE_NAME, BaseColumns._ID,
                 COLUMN_CODE,
@@ -33,7 +33,7 @@ public class DatabaseContract {
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE %s", TABLE_NAME);
 
         public static final String SQL_INSERT_ENTRY = String.format("INSERT INTO %s " +
-                "(%s, %s, %s, %s) VALUES ('AGP', 'España', '2017-05-27', 'Un aeropuerto boquerón')",
+                "(%s, %s, %s, %s) VALUES ('AGP', 'España', '27/05/2017', 'Un aeropuerto boquerón')",
                 TABLE_NAME,
                 COLUMN_CODE,
                 COLUMN_COUNTRY,

@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Airports</string>
+    <string name="txtCode"> « Código Aeropuerto (*)</string>
+    <string name="txtExampleCode">EJ: MAD [ Madrid Barajas ]</string>
+    <string name="txtCity"> « País Visita (*)</string>
+    <string name="txtTitleDate"> « Fecha Visita (*)</string>
+    <string name="txtExampleDate"> EJ: 20/6/2011</string>
+    <string name="txtNotes"> « Notas  </string>
+    <string name="btnAdd"> Añadir </string>
+    <string name="sizeCode">3</string>
+    <string name="sizeCity">25</string>
+    <string name="btnDate">Fecha</string>
+    <string name="sizeNotes">50</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
