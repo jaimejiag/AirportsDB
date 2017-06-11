@@ -26,6 +26,13 @@ public class AirportsAdapter extends CursorAdapter {
     }
 
 
+    /**
+     * Asocia las vistas del holder con los componentes del layout asociado a este adapter.
+     * @param context
+     * @param cursor
+     * @param parent
+     * @return
+     */
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -35,14 +42,23 @@ public class AirportsAdapter extends CursorAdapter {
         holder.txvCode = (TextView) rootView.findViewById(R.id.txv_airport_code);
         holder.txvCountry = (TextView) rootView.findViewById(R.id.txv_airport_country);
         holder.txvDate = (TextView) rootView.findViewById(R.id.txv_airport_date);
+
+        //Importante para recuperar los componentes ya asociados del holder, para su posterior uso.
         rootView.setTag(holder);
 
         return rootView;
     }
 
 
+    /**
+     * Carga los datos del cursor asociado a este adapter en las vista del holder.
+     * @param view
+     * @param context
+     * @param cursor
+     */
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        //Recupera los componentes asociados del holder.
         AirportHolder holder = (AirportHolder) view.getTag();
 
         holder.txvCode.setText(cursor.getString(1));
@@ -51,13 +67,20 @@ public class AirportsAdapter extends CursorAdapter {
     }
 
 
+    /**
+     * Devuelve un objeto aeropuerto de una posición específica del cursor.
+     * @param position
+     * @return
+     */
     @Override
     public Object getItem(int position) {
+        //Siempre hay que mover el cursor a la posición especificada.
         getCursor().moveToPosition(position);
         Date date = null;
 
         try {
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            //Convierte un String en un objeto Date.
             date = format.parse(getCursor().getString(3));
         } catch (ParseException e) {
             e.printStackTrace();
@@ -73,6 +96,9 @@ public class AirportsAdapter extends CursorAdapter {
     }
 
 
+    /**
+     * Holder con las vistas que hay en el layout asociado a este adapter.
+     */
     private class AirportHolder {
         TextView txvCode;
         TextView txvCountry;

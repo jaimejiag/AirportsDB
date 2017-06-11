@@ -10,6 +10,9 @@ import com.jaime.airports.database.DatabaseManager;
  * Created by usuario on 1/06/17.
  */
 
+/**
+ * Clase que hereda de CursorLoader responsable de cargar los aeropuerto en segundo plano.
+ */
 public class AirportsLoaderManager extends CursorLoader {
 
     public AirportsLoaderManager(Context context) {
@@ -17,6 +20,11 @@ public class AirportsLoaderManager extends CursorLoader {
     }
 
 
+    /**
+     * Método que se ejecuta en segundo plano y que devuelve un cursor con todos los aeropuertos
+     * que hay en la base de datos.
+     * @return
+     */
     @Override
     public Cursor loadInBackground() {
         return DatabaseManager.getInstance().getAllAirports();

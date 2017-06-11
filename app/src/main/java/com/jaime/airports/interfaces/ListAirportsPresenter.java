@@ -9,10 +9,14 @@ import android.database.Cursor;
 
 public interface ListAirportsPresenter {
 
+    /**
+     * Interfaz con los métodos necesarios para la vista.
+     */
     interface View {
         Context getContext();
         void setCursor(Cursor cursor);
     }
 
     void requestAllAirport();
+    void requestToDeleteAirport(int id);
 }

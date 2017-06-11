@@ -10,6 +10,10 @@ import com.jaime.airports.pojo.Airport;
  * Created by jaime on 04/06/2017.
  */
 
+/**
+ * Clase que implementa los métodos del presentador especificado, que llamará a los
+ * métodos del DatabaseManager.
+ */
 public class AddAirportPresenterImpl implements AddAirportPresenter {
 
     @Override
@@ -22,5 +26,11 @@ public class AddAirportPresenterImpl implements AddAirportPresenter {
     @Override
     public void requestToAddAirport(Airport airport) {
         DatabaseManager.getInstance().addAirport(airport);
+    }
+
+
+    @Override
+    public void requestToUpdateAirport(Airport airport) {
+        DatabaseManager.getInstance().updateAirport(airport);
     }
 }

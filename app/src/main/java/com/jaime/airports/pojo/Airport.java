@@ -9,6 +9,10 @@ import java.util.Date;
  * Created by jaime on 27/05/2017.
  */
 
+/**
+ * Clase que define un aeropuerto, debe ser Parcelable para cuando queramos transeferir un aeropuerto
+ * de un fragment a otro (o activity), o asociarlo en una notificación.
+ */
 public class Airport implements Parcelable {
     private int id;
     private String code;

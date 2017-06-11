@@ -11,7 +11,11 @@ import com.jaime.airports.AirportApplication;
  * Created by jaime on 27/05/2017.
  */
 
+/**
+ * Clase encargada de crear la base de datos, añadir tablas o eliminarlas.
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
+    //Aumentar el valor de esta constante cuando se haga una actualización en la estructura de la base de datos
     private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "airports.db";
     private static DatabaseHelper mInstance;
@@ -31,14 +35,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    /**
+     * Abre la base de datos y devuelve un objeto SQLiteDatabase para hacer la gestión pertinente
+     * hacia la base de datos.
+     * @return
+     */
     public SQLiteDatabase openDatabase() {
         mDatabase = getWritableDatabase();
         return mDatabase;
     }
 
 
+    /**
+     * Al crear la base de datos se llama a este método.
+     * Aquí es donde debe hacerse las operaciones de creación e inserción de una tabla.
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //Siempre hay que hacer una transacción cuando se ejecute más de una operación hacia la base de datos.
         db.beginTransaction();
 
         try {
@@ -54,6 +69,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    /**
+     * Método que se ejecutará cuando se aumente la versión de la base de datos,
+     * para ello hay que modificar el valor de la constante DATABASE_VERSION.
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DatabaseContract.AirportsEntry.SQL_DELETE_ENTRIES);
@@ -61,6 +83,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    /**
+     * Método que se ejecutará cuando se decremente la versión de la base de datos,
+     * modificando el valor de la constante DATABASE_VERSION.
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         super.onDowngrade(db, oldVersion, newVersion);

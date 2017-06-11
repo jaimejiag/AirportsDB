@@ -9,4 +9,5 @@ import com.jaime.airports.pojo.Airport;
 public interface AddAirportPresenter {
     boolean isThisCodeTaken(String code);
     void requestToAddAirport(Airport airport);
+    void requestToUpdateAirport(Airport airport);
 }

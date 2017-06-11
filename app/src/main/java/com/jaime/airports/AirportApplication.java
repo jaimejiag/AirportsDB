@@ -13,6 +13,10 @@ public class AirportApplication extends Application {
     private static AirportApplication mInstance;
 
 
+    /**
+     * Al abrir la app se inicializará DatabaseManager, que es la clase encargada del manejo de los
+     * métodos CRUD de la base de datos.
+     */
     @Override
     public void onCreate() {
         super.onCreate();

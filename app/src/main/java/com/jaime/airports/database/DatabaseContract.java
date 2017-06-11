@@ -6,6 +6,15 @@ import android.provider.BaseColumns;
  * Created by jaime on 27/05/2017.
  */
 
+/**
+ * Clase que contiene todas las constantes con las sentencias SQL que crean la base de datos
+ * y realizan las operaciones de insercción de los datos.
+ *
+ * Por cada tabla de la BD se crea una clase interna que corresponde con cada tabla.
+ *
+ * Todas las clases internas heredan de BaseColumns porque tiene automáticamente
+ * el id necesario para trabajar con SQLite.
+ */
 public class DatabaseContract {
 
     private DatabaseContract () {}
@@ -32,6 +41,7 @@ public class DatabaseContract {
 
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE %s", TABLE_NAME);
 
+        //Constante para mockear la base de datos en su creación, para así mostrar un datos al menos.
         public static final String SQL_INSERT_ENTRY = String.format("INSERT INTO %s " +
                 "(%s, %s, %s, %s) VALUES ('AGP', 'España', '27/05/2017', 'Un aeropuerto boquerón')",
                 TABLE_NAME,
